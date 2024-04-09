@@ -1,12 +1,28 @@
-// Migrations are an early feature. Currently, they're nothing more than this
-// single deploy script that's invoked from the CLI, injecting a provider
-// configured from the workspace's Anchor.toml.
+const anchor = require('@project-serum/anchor');
+const { SystemProgram } = anchor.web3;
 
-const anchor = require("@coral-xyz/anchor");
+async function main() {
+  // Configure the client to use the local cluster.
+  anchor.setProvider(anchor.Provider.env());
 
-module.exports = async function (provider) {
-  // Configure client to use the provider.
-  anchor.setProvider(provider);
+  // Read the generated IDL.
+  const idl = JSON.parse(require('fs').readFileSync('./target/idl/meme_alchemy.json', 'utf8'));
 
-  // Add your deploy script here.
-};
+  // Load the program from the IDL.
+  const programId = new anchor.web3.PublicKey('2wMP4GLFkKV3eZnr17PnB4JStRzUN4oet4xmvmgHWq9t');
+  const program = new anchor.Program(idl, programId);
+
+  // Execute the deployment.
+  console.log("Deploying...");
+  await program.rpc.initialize({
+    accounts: {
+      yourAccount: SystemProgram.programId,
+    },
+  });
+  console.log("Deployment successful!");
+}
+
+main().then(() => process.exit(0)).catch(error => {
+  console.error(error);
+  process.exit(1);
+});

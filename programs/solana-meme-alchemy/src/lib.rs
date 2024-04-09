@@ -1,15 +1,27 @@
-use anchor_lang::prelude::*;
 
-declare_id!("GCmY5vbNkFNdM5ofYcNHnJ8ivZNzHLVP3vEx6vUbYdFQ");
+pub mod instructions;
+pub mod state;
+pub mod utils;
+pub mod errors;
+
+use {anchor_lang::prelude::*, instructions::*};
+
+declare_id!("2wMP4GLFkKV3eZnr17PnB4JStRzUN4oet4xmvmgHWq9t");
 
 #[program]
-pub mod solana_meme_alchemy {
+pub mod hedge_take_home {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        Ok(())
+    pub fn init_pool(ctx: Context<InitializePool>) -> Result<()> {
+        init_pool::handler(ctx)
     }
-}
 
-#[derive(Accounts)]
-pub struct Initialize {}
+    pub fn init_stake_entry(ctx: Context<InitEntryCtx>) -> Result<()> {
+        init_stake_entry::handler(ctx)
+    }
+
+    pub fn stake(ctx: Context<StakeCtx>, amount: u64) -> Result<()> {
+        stake::handler(ctx, amount)
+    }
+
+}

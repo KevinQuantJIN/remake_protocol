@@ -11,7 +11,7 @@ solana_meme_alchemy = "GCmY5vbNkFNdM5ofYcNHnJ8ivZNzHLVP3vEx6vUbYdFQ"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "http://127.0.0.1:8899"
 wallet = "/Users/kevin/.config/solana/id.json"
 
 [scripts]
