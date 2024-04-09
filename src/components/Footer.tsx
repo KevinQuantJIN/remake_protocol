@@ -9,19 +9,19 @@ export const Footer: FC = () => {
                     <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-8 md:space-x-12 relative">
                         <div className='flex flex-col col-span-2 mx-4 items-center md:items-start'>
                             <div className='flex flex-row ml-1'>
-                                <Link href="https://solana.com" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
+                                <Link href="/" target="_blank" rel="noopener noreferrer" passHref className="text-secondary hover:text-white">
                                     <div className='flex flex-row ml-1'>
                                         <Image
-                                            src="/solanaLogo.png"
+                                            src="/image.png"
                                             alt="solana icon"
-                                            width={156}
-                                            height={96}
+                                            width={256}
+                                            height={256}
                                         />
                                     </div>
                                 </Link>
                             </div>
                             <div className="flex md:ml-2">
-                                <a href="https://twitter.com/solana_devs" type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                                <a href="https://twitter.com/Remakeforcomm" type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                                     <svg aria-hidden="true"
                                         focusable="false"
                                         data-prefix="fab"
@@ -37,7 +37,7 @@ export const Footer: FC = () => {
                                     ></path>
                                     </svg>
                                 </a>
-                                <a href="https://github.com/solana-labs"  type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                                <a href="https://github.com/KevinQuantJIN/remake_protocol"  type="button" className="border-white text-secondary hover:text-white leading-normal hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                                     <svg aria-hidden="true"
                                         focusable="false"
                                         data-prefix="fab"
@@ -55,7 +55,7 @@ export const Footer: FC = () => {
                                 </a>
                             </div>
                             <div className="mb-6 m-1 sm:text-left place-items-start items-start font-normal tracking-tight text-secondary">
-                                        © 2023 Solana Foundation
+                                        © 2024 Solana Renaissance Hackathon @RemakeProtoocl
                             </div>
                         </div>
 

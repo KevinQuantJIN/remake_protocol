@@ -8,6 +8,7 @@ import { useWallet, useConnection } from '@solana/wallet-adapter-react';
 // Components
 import { RequestAirdrop } from '../../components/RequestAirdrop';
 import pkg from '../../../package.json';
+import { CreatePoolForm } from "../../components/create-pool-form";
 
 // Store
 import useUserSOLBalanceStore from '../../stores/useUserSOLBalanceStore';
@@ -28,42 +29,38 @@ export const HomeView: FC = ({ }) => {
 
   return (
 
-    <div className="md:hero mx-auto p-4">
-      <div className="md:hero-content flex flex-col">
-        <div className='mt-6'>
-        <div className='text-sm font-normal align-bottom text-right text-slate-600 mt-4'>v{pkg.version}</div>
-        <h1 className="text-center text-5xl md:pl-12 font-bold text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-fuchsia-500 mb-4">
-          Solana Next
-        </h1>
-        </div>
-        <h4 className="md:w-full text-2x1 md:text-4xl text-center text-slate-300 my-2">
-          <p>Unleash the full power of blockchain with Solana and Next.js 13.</p>
-          <p className='text-slate-500 text-2x1 leading-relaxed'>Full-stack Solana applications made easy.</p>
-        </h4>
-        <div className="relative group">
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-indigo-500 rounded-lg blur opacity-40 animate-tilt"></div>
-          <div className="max-w-md mx-auto mockup-code bg-primary border-2 border-[#5252529f] p-6 px-10 my-2">
-            <pre data-prefix=">">
-              <code className="truncate">{`npx create-solana-dapp <dapp-name>`} </code>
-            </pre>
-          </div>
-        </div>
-        <div className="flex flex-col mt-2">
-          <RequestAirdrop />
-          <h4 className="md:w-full text-2xl text-slate-300 my-2">
-          {wallet &&
-          <div className="flex flex-row justify-center">
-            <div>
-              {(balance || 0).toLocaleString()}
-              </div>
-              <div className='text-slate-600 ml-2'>
-                SOL
-              </div>
-          </div>
-          }
-          </h4>
-        </div>
+    <div className=" text-white">
+     <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 text-center py-8">
+    Remake Protocol
+  </h2> 
+     <div className="flex flex-row text-white p-4 md:p-8">
+     
+  {/* Step 1 */}
+  <div className="basis-1/4 md:basis-1/3 flex flex-col items-center justify-normal">
+    <div className="text-2xl font-bold mb-2">01</div>
+    <div className="text-lg font-bold text-center mb-1">Fill Address</div>
+    <p className="text-sm text-center">Fill the token mint address below.</p>
+  </div>
+
+  {/* Step 2 */}
+  <div className="basis-1/4 md:basis-1/3 flex flex-col items-center justify-normal">
+    <div className="text-2xl font-bold mb-2">02</div>
+    <div className="text-lg font-bold text-center mb-1">Fetch Metadata</div>
+    <p className="text-sm text-center">Fetch the token metadata.</p>
+  </div>
+
+  {/* Step 3 */}
+  <div className="basis-1/2 md:basis-1/3 flex flex-col items-center justify-normal">
+    <div className="text-2xl font-bold mb-2">03</div>
+    <div className="text-lg font-bold text-center mb-1">Create Pool</div>
+    <p className="text-sm text-center">Create the relaunch pool.</p>
+  </div>
+</div>
+<div className="flex justify-center mt-5 mb-20">
+      <div className="flex justify-center mt-5">
+        <CreatePoolForm></CreatePoolForm>
       </div>
+    </div>
     </div>
   );
 };
